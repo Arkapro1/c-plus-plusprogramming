@@ -22,7 +22,7 @@ void print(node* head){
     }
     cout<<endl;;
 }
-// ai head fn
+// at head fn
 void insertAtHead(node *&head, int d)
 {
     node *temp = new node(d);
