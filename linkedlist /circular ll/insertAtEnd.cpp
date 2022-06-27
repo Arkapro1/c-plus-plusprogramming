@@ -41,7 +41,7 @@ int main()
     node *head = n1;
     node *consthead = n1;
     print(consthead);
-    insertAtEnd(consthead,head,6); // n1 is sending as tail node😙
+    insertAtEnd(consthead,head,6);
     print(consthead);
     insertAtEnd(consthead,head,7);
     print(consthead);
