@@ -20,7 +20,7 @@ void insert_at_middle(node* &consthead, int position, int data) // we are using 
     node *temp = new node(data);
     node *beforeThePosiiton = useconthead;
     // for inserting at first one;
-    if (position = 1)
+    if (position ==1)
     {
         beforeThePosiiton=useconthead->prev;
         consthead=temp;
