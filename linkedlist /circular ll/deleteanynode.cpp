@@ -15,13 +15,39 @@ public:
         this->prev = this;
     }
 };
+void deleteAnyNode(node *&consthead, int position)
+{node* useconsthead=consthead;
+    if (position == 0)
+        return;
+    node *beforetheposion = useconsthead;
+    node *theposion;
+    node *aftertheposion;
+    if (position == 1)
+    {
+        beforetheposion = consthead->prev;
+        // if the top is deleted then the 2nd is now top;
+        consthead=consthead->next;
+    }
+    else
+    {
+        for (int i = 1; i < position - 1; i++)
+        {
+            beforetheposion = beforetheposion->next;
+        }
+    }
+
+    theposion = beforetheposion->next;
+    aftertheposion = theposion->next;
+    beforetheposion->next = aftertheposion;
+    aftertheposion->prev = beforetheposion;
+    // the position is stay with itself not ALONE OHHHH;
+    theposion->next = NULL;
+    theposion->prev = NULL;
+}
 void insert_at_middle(node *&consthead, int position, int data) // we are using the address for cont head because is case of top inserting the consthead should be charged (globally) to temp because the temp is now at top;
 {
     if (position == 0)
-    {
-        cout << "really the value is add in 0 position🤣 😁" << endl;
         return;
-    }
     node *useconthead = consthead;
     node *temp = new node(data);
     node *beforeThePosiiton = useconthead;
@@ -84,5 +110,11 @@ int main()
     int position, d;
     cin >> position >> d;
     insert_at_middle(consthead, position, d);
+    print(consthead);
+    cout << "let's delete one node" << endl;
+    int posi;
+    cout << "enter the position" << endl;
+    cin >> posi;
+    deleteAnyNode(consthead, posi);
     print(consthead);
 }
