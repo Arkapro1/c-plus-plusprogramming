@@ -11,10 +11,11 @@ for(int i=0;i<n;i++){
     cin>>x;
     s.push(x);
 }
+cout<<"size now: "<<s.size()<<endl;
 cout<<"printing your stack and poping"<<endl;
 while(!s.empty())
 {cout<<s.top()<<endl;
 s.pop();}
 cout<<"stack is empty"<<endl;
-
+cout<<"size now: "<<s.size()<<endl;
 }
