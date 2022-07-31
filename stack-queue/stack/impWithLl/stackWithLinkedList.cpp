@@ -1,58 +1,36 @@
 #include<bits/stdc++.h>
 using namespace std;
-// nodes
-class stackNode{
-public:
-int data;
-stackNode* next;
-stackNode(int data){
-    this->data=data;
-    this->next=NULL;
-}
-};
-
-void insertAtHead(stackNode* &head,int data){
-stackNode* temp=new stackNode(data);
-temp->next=head;
-head=temp;
-
-}
-// main stack fegure
 class stackk{
 public:
 int size;
-int top;
- stackNode* head;
-stackk(int size){
-    this->size=size;
-    top=-1;
+stackk* top;
+stackk* temp;
+stackk* next=NULL;
+stack(){
+this.top=NULL;
+this.size=-1;
 }
-//push
+bool isEmpty(){
+    return (top==NULL);
+}
 void push(int data){
-    if (isEmpty()){
-         head=new stackNode(data);
-         top++;
-    }
-   else if(isFull()){
-        cout<<"ouu the stack is full 🙇‍♀️"<<endl;
-    }
-    else{
-        top++;
-        insertAtHead(head,data);
-    }
+temp=new stackk(data);
+temp->next=top;
+top=temp;
+size++;
 }
-// pop
-
-
-
-//toppick
-bool isEmpty (){
-    return(top==-1);
+void pop(){
+if(isEmpty()){
+cout<<"the stack is empty::"<<endl;
+return;
 }
-bool isFull(){
-    return (top==size-1);
+//continue🙇‍♀️🙇‍♀️🙇‍♀️🙇‍♀️🙇‍♀️🙇‍♀️
 }
+int toppick(){
+
+}
+
 };
 int main(){
-
+    stackk s;
 }
