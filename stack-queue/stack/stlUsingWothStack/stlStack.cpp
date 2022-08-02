@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main (){
-  cout<<"yo";
 stack<int>s;
 cout<<"enter how many elements do u want to push: "<<endl;
 int n;
