@@ -5,12 +5,12 @@ class Queue{
     int front;
     int rear;
     int size;
-    int arr[];
+    int* arr;
     Queue(int size){
         this->size=size;
         front=-1;
         rear=-1;
-         arr[size];
+        arr=new int[size];
     }
     bool isFull(){
         return (rear==size-1);
@@ -41,6 +41,7 @@ class Queue{
     }
     int frontView(){
         if(front==-1){
+            cout<< "empty ";
             return -1;
         }
         return arr[front];
@@ -56,25 +57,18 @@ class Queue{
         return;
     }
     int space(){
-        if(rear==-1)return 1;
+        if(rear==0)return 1;
+        if(rear==-1)return 0;
         return 1+rear-front;
     }
 };
 int main(){
     Queue q(5);
-    q.push(1);
-    q.push(12);
-    q.push(12);
-    q.push(12);
-    q.push(12);
-    q.push(12);
+    q.push(6);
+    cout<<"total size: "<<q.space()<<" "<<"the front: "<<q.frontView()<<endl;
     q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
-    q.pop();
-    q.push(3);
-    (q.frontView()==-1)?cout<<"empty"<<endl:cout<<q.frontView()<<endl;
-
-
+    // cout<<q.rear<<" "<<q.front<<endl;
+    cout<<"total size: "<<q.space()<<" "<<"the front: "<<q.frontView()<<endl;
+    q.push(10);
+    cout<<"total size: "<<q.space()<<" "<<"the front: "<<q.frontView()<<endl;
 }
