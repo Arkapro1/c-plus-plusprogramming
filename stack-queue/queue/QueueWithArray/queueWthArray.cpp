@@ -2,48 +2,79 @@
 using namespace std;
 class Queue{
     public:
-    int size;
     int front;
-    int moovon;
+    int rear;
+    int size;
     int arr[];
     Queue(int size){
         this->size=size;
         front=-1;
-        moovon=-1;
-        arr[size];
-        cout<<"the queue is ready🌀"<<endl;
-    }
-    bool isEmpty(){
-        return (front==-1||front==size);
+        rear=-1;
+         arr[size];
     }
     bool isFull(){
-        return (front==size);
+        return (rear==size-1);
+    }
+    bool isEmpty(){
+        return (rear==-1);
     }
     void push(int data){
-        if(isFull()) {
+        if(isFull()){
             cout<<"the queue is full"<<endl;
             return;
         }
-        if(isEmpty()) {front=0;moovon=0;}
-        else {
-            moovon++;
-        }
-        arr[moovon]=data;
+        if(front==-1)front=0;
+        rear++;
+        arr[rear]=data;
     }
     void pop(){
-        if(isEmpty()){cout<<"the queue is empty"<<endl;return;}
+        if(isEmpty()){
+            cout<<"the queue is empty"<<endl;
+            return;
+        }
+        if(front==size-1||front==rear){
+            front=-1;
+            rear=-1;
+        }
+        else 
         front++;
     }
-    int frontPick(){
-        if(isEmpty()){cout<<"the queue is empty"<<endl;return 0;}
+    int frontView(){
+        if(front==-1){
+            return -1;
+        }
         return arr[front];
     }
-
+    void print(){
+        if(isEmpty()){
+            cout<<"the queue is empty"<<endl;
+            return;
+        }
+        for(int i=front;i<=rear;i++){
+            cout<<arr[i]<<endl;
+        }
+        return;
+    }
+    int space(){
+        if(rear==-1)return 1;
+        return 1+rear-front;
+    }
 };
-int main (){
-Queue q(5);
-q.push(3);
-cout<<q.arr[0]<<endl;
-if (q.isEmpty())cout<<"done"<<endl;
+int main(){
+    Queue q(5);
+    q.push(1);
+    q.push(12);
+    q.push(12);
+    q.push(12);
+    q.push(12);
+    q.push(12);
+    q.pop();
+    q.pop();
+    q.pop();
+    q.pop();
+    q.pop();
+    q.push(3);
+    (q.frontView()==-1)?cout<<"empty"<<endl:cout<<q.frontView()<<endl;
+
 
 }
