@@ -63,12 +63,12 @@ Stackk s(1);
 // s.pop();
 s.push_in_0(3);
 s.push_in_0(3);
-cout<<s.size;
+// cout<<s.size;
 // s.push_in_0(4);
 // s.push_in_0(4);
 // s.push_in_0(4);
 // s.pop();
 // cout<<s.top();
-// s.Fullprint();
+s.Fullprint();
 // cout<<"the top element is::: "<<s.top()<<endl;
 }
