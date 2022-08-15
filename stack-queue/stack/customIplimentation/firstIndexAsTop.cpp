@@ -8,6 +8,7 @@ int size;
 Stackk(int size){
     arr=new int[size];
     front=-1;
+    this->size=size;
 }
 bool isFull(){
     return (front==size-1);
@@ -17,15 +18,18 @@ bool isempty(){
 }
 void push_in_0(int data){
     if(isFull()){
-        cout<<"the stack is not empty"<<endl;
+        cout<<"the stack is FULL🙇‍♀️"<<endl;
         return ;
     }
     front++;
+    //if it's the first index no need to shift;
+    if(front==0){
+        arr[0]=data;
+        return;
+    }
     for(int i=front;i>0;i--){
         arr[i]=arr[i-1];
     }
-    arr[0]=data;
-
 }
 void pop(){
     if(isempty()){
@@ -55,11 +59,16 @@ void Fullprint(){
 }
 };
 int main(){
-Stackk s(3);
+Stackk s(1);
 // s.pop();
 s.push_in_0(3);
-s.push_in_0(4);
-s.push_in_0(5);
-s.Fullprint();
-cout<<"the top element is::: "<<s.top()<<endl;
+s.push_in_0(3);
+cout<<s.size;
+// s.push_in_0(4);
+// s.push_in_0(4);
+// s.push_in_0(4);
+// s.pop();
+// cout<<s.top();
+// s.Fullprint();
+// cout<<"the top element is::: "<<s.top()<<endl;
 }
