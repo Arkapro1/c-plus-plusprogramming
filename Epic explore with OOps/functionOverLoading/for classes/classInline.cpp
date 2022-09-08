@@ -11,7 +11,7 @@ class cl{
 void cl::print2(){
     cout<<"not inline "<<endl;
 }
-void cl::print3(){
+inline void cl::print3(){
     cout<<"manualy making inline"<<endl;
 } 
 int main(){
